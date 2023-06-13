@@ -1,10 +1,17 @@
-// Hello World in Nodejs
+const btn = document.getElementById('button');
+const randomColor = () => {
+    let val = "0123456789ABCDEF";
+    let cons = "#";
 
-var http = require('http');  
-  
-http.createServer(function (req, res) {
-    res.write('Hello World!');
-    res.end();
-}).listen(4000);
-  
-console.log('Server running at 4000');
+  for (let i = 0; i < 6; i++){
+    cons = cons + val [Math.floor(Math.random() * 16)];
+  }
+  return cons;
+}
+console.log(randomColor());
+
+function changeRandomColor() {
+   document.body.style.backgroundColor = randomColor();
+}
+
+btn.addEventListener("click", changeRandomColor);
